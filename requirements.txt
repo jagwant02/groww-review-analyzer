@@ -1,0 +1,9 @@
+google-play-scraper
+pandas
+groq
+langgraph
+streamlit
+python-dotenv
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
