@@ -1,52 +1,58 @@
 # 📈 Groww Weekly Pulse Generator
 
-An AI-powered system that automates the collection, sanitization, and analysis of Groww app reviews using a multi-agent approach. 
+A multi-agent AI system that turns Groww's Play Store reviews into a one-page weekly brief — themes, user quotes, and product action ideas — delivered automatically to Google Docs and Gmail.
 
-## 🚀 Key Features
-- **Data Ingestion:** Automatically fetches public reviews for Groww from the Google Play Store.
-- **Privacy First:** Strict PII scrubbing removing names, emails, and phone numbers.
-- **Multi-Agent Analysis:**
-  - **Analyst:** Extracts top 5 themes and 3 quotes.
-  - **Product Manager:** Generates 3 actionable roadmap ideas.
-  - **Copywriter:** Drafts a <250 word Markdown note.
-  - **Reviewer:** Self-correcting QA loop to ensure word counts and compliance.
-- **Human-in-the-Loop:** Streamlit dashboard for real-time monitoring and approval.
-- **Google Workspace Sync:** One-click publishing to Google Docs, Google Drive, and Gmail.
+---
 
-## 🛠️ Setup Instructions
+## The Problem
 
-### 1. Prerequisites
-- Python 3.8+
-- Groq API Key (from [console.groq.com](https://console.groq.com/))
-- Google Cloud Project with Gmail, Google Docs, and Google Drive APIs enabled.
+PM teams get hundreds of app reviews every week. Reading them manually is slow and inconsistent. Insights sit unread, patterns get missed, and roadmap decisions get made without the full picture of what users are actually saying.
 
-### 2. Installation
-```bash
-pip install -r requirements.txt
+---
+
+## How It Works
+
+```
+Play Store Reviews
+       ↓
+Analyst Agent       → top 5 themes + 3 real user quotes
+       ↓
+PM Agent            → 3 actionable product ideas
+       ↓
+Copywriter Agent    → clean <250 word pulse note
+       ↓
+Reviewer Agent      → checks compliance + word count (loops back if needed)
+       ↓
+Streamlit Dashboard → human approves before anything goes out
+       ↓
+Google Docs · Google Drive · Gmail
 ```
 
-### 3. Environment Variables
-Create a `.env` file in the root directory:
-```text
-GROQ_API_KEY=your_groq_api_key_here
-```
+---
 
-### 4. Google Workspace Setup
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Enable **Gmail API**, **Google Docs API**, and **Google Drive API**.
-3. Create an **OAuth 2.0 Client ID** (Desktop App).
-4. Download the JSON file and rename it to `credentials.json` in the project root.
+## Key Product Decisions
 
-### 5. Running the App
-```bash
-streamlit run app.py
-```
+**Human-in-the-loop before publishing** — AI-generated insights going straight to a leadership inbox without review is a reliability risk. The approval gate is a deliberate product choice, not a technical limitation.
 
-## 📦 Deliverables
-Upon clicking "Approve" in the dashboard:
-1. **Google Doc:** A professional one-page weekly note.
-2. **Google Drive:** The sanitized reviews CSV dataset.
-3. **Gmail:** A draft email containing the pulse note.
+**Self-correcting Reviewer agent** — instead of hardcoding rules, a dedicated agent checks the output and sends it back if it fails. Self-correcting, not brittle.
 
-## 📄 License
-MIT
+**PII scrubbed before the LLM sees anything** — names, emails, and phone numbers stripped at ingestion. The LLM never touches personal data.
+
+**Output goes to Google Workspace** — PMs already live in Docs and Gmail. No new tool to adopt, no friction.
+
+---
+
+## Tech Stack
+Python · Groq (Llama 3) · Streamlit · Google Docs API · Google Drive API · Gmail API · Render
+
+---
+
+## What I'd Build Next
+- Sentiment trend tracking week-over-week
+- Multi-app support to monitor competitors alongside Groww
+- Slack integration for channel delivery
+- Automated theme scoring by frequency and severity
+
+---
+
+*Built by Jagwant Singh · [LinkedIn](https://linkedin.com/in/jagwant-singh01)*
