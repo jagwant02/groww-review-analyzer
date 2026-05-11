@@ -40,10 +40,13 @@ Google Docs · Google Drive · Gmail
 
 **Output goes to Google Workspace** — PMs already live in Docs and Gmail. No new tool to adopt, no friction.
 
-<div align="center">
-  <h3>🚀 Project Walkthrough</h3>
-  <video src="Video Project 1 (1).mp4" width="100%" controls></video>
-</div>
+
+### Watch the AI Agents Live in Action
+
+https://github.com/user-attachments/assets/0b22acf5-4ca9-4730-8e1a-031589c44b26
+
+
+
 
 
 ---
