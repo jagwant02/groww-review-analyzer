@@ -40,6 +40,12 @@ Google Docs · Google Drive · Gmail
 
 **Output goes to Google Workspace** — PMs already live in Docs and Gmail. No new tool to adopt, no friction.
 
+<div align="center">
+  <h3>🚀 Project Walkthrough</h3>
+  <video src="Video Project 1 (1).mp4" width="100%" controls></video>
+</div>
+
+
 ---
 
 ## Tech Stack
